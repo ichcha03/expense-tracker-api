@@ -17,6 +17,12 @@ const MONGODB_URI = process.env.MONGODB_URI;
 // Middleware: Tell Express to automatically parse incoming JSON requests
 app.use(express.json());
 
+// Import the expense routes
+const expenseRoutes = require('./routes/expenseRoutes');
+
+// Use the expense routes
+app.use('/api', expenseRoutes);
+
 // TEST ROUTE: A basic GET route so we can verify the server is working
 app.get('/', (req, res) => {
   res.json({
